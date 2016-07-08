@@ -36,6 +36,8 @@ Each source will have the following properties:
  * file name and extension
  * upload created date
  * modified date
+ * public/private
+ * content rater NSFW
 
 #### File Types
 * .cbr
