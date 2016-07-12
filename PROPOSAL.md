@@ -40,11 +40,16 @@ Each source will have the following properties:
  * content rater NSFW
 
 #### File Types
-* .cbr
-* .cbz
-* .cbt
-* .png
-* .jpg, .jpeg
+* Upload File Types
+    * Viewer File Types
+        * .cbr
+        * .cbz
+        * .cbt
+    * Transformable input File Types
+        * .png
+        * .jpg, .jpeg
+    * Transformed output File Types
+        * .cbz
 
 ### Viewable Comic
 Viewable comics will be viewed in a .cbr .cbz .cbt format
