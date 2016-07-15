@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'reader',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -74,16 +75,7 @@ WSGI_APPLICATION = 'icbr.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ICBR',
-        'USER': 'travis',
-        'PASSWORD': 'C0rpr@t3',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
+
 
 
 # Password validation
@@ -124,3 +116,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+try:
+  from local_settings import *
+except ImportError:
+  pass
