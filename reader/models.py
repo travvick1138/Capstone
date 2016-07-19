@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Comicbook(models.Model):
+    #when creating a file I will need to set users as Publisher
     #A file that is already a .cbr, .cbz, or .cbt file
     #Meta Data
     #Title =
@@ -35,6 +36,8 @@ class library(models.Model):
 
 class Creator(models.Model):
     #An extended user class with permissions to create and share comicbooks they have created
+    #Type = Are you a Writer/Artist/Inker/letter/colorist?
+    #Self Publisher name = (ex. travisRVick+comicArtist)
     pass
 
 class Reader(models.Model):

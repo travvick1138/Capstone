@@ -38,12 +38,26 @@ you should see (myenv) show up in front of your prompt (ex: `(myenv) Jasmine@Hom
 
 follow its instructions and make sure you see the right message in your browser.
 
-## Requirements for Picopt
+## Requirements for Creating comic book files
 
 ### install Pillow 3.3.0
 
     pip3 install Pillow
 
+### install python-resize-image
+
+    pip3 install python-resize-image
+    
 ### install rarfile 2.8
 
-    pip3 install rarfileMozjpeg
+    pip3 install rarfile
+
+### install zipfile
+
+    pip3 install zipfile
+
+## Requirements  for Comic Book Reader
+
+### install collective.comicbookreader
+
+    pip3 install http://pypi.python.org/packages/source/c/collective.comicbookreader/collective.comicbookreader-1.0.tar.gz
