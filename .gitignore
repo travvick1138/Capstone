@@ -2,6 +2,8 @@
 __pycache__
 myvenv
 db.sqlite3
-/static
 .DS_Store
 local_settings.py
+*/migrations
+#.gitignore
+node_modules
