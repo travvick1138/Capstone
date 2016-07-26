@@ -1,6 +1,6 @@
 # Proposal: Indie Comic Book Reader
 
-The **ICBR** is a comic book viewer in a web app.
+The **ICBR** is a comic book viewer in a web app.  This reader is based on https://github.com/giacomos/collective.comicbookreader it is not an exact replica, but modern update with my twists, but the initial credit goes to giacomos
 
 ## Installation
 
@@ -47,7 +47,7 @@ follow its instructions and make sure you see the right message in your browser.
 ### install python-resize-image
 
     pip3 install python-resize-image
-    
+
 ### install rarfile 2.8
 
     pip3 install rarfile
@@ -55,9 +55,3 @@ follow its instructions and make sure you see the right message in your browser.
 ### install zipfile
 
     pip3 install zipfile
-
-## Requirements  for Comic Book Reader
-
-### install collective.comicbookreader
-
-    pip3 install http://pypi.python.org/packages/source/c/collective.comicbookreader/collective.comicbookreader-1.0.tar.gz

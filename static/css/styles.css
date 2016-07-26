@@ -1,5 +1,5 @@
-@import 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300';
-
+/*@import 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300';*/
+@import 'http://fonts.googleapis.com/css?family=Bangers';
 html,
 body {
   width: 100%;
@@ -9,10 +9,67 @@ body {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: Bangers, sans-serif;
+  background-image:
+  /*font-family: 'comic sans', sans-serif;*/
 }
 
-div[class*=box] {
+h1 {
+    font-family: Bangers, sans-serif;
+    font-size: 9em;
+    color: #0000ff;
+    letter-spacing: 0.065em;
+    text-shadow: 0.035em 0.035em #ffff00;
+}
+
+h1 .closer {
+   letter-spacing:0.05em;
+}
+
+p {
+  font-family:'Comic Sans', cursive;
+  font-style: italic;
+  font-size: 24px;
+  letter-spacing: 0.035em;
+  color: #000000;
+  padding-left: 1em;
+  text-shadow: 0em 0em #ffffff;
+}
+.main_example_link_right_center_image_txt {
+  @font-face {
+		font-family: 'BadaboomBB';
+		src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/badaboombb.woff2') format('woff2'),
+		url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/badaboombb.woff') format('woff');
+		font-style: normal;
+		font-weight: 400;
+		}
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    section {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+    }
+    section:first-of-type {
+      background: hsl(30,100%,50%);
+    }
+    section:last-of-type {
+      background: hsl(60,100%,60%);
+    }
+    svg {
+      width: 50%;
+    }
+    text {
+    			font-size: 60px;
+    			font-family: BadaboomBB, script;
+    }
+    section:last-of-type svg text {
+      filter: url(#shadow);
+      fill: url(#hexapolka);
+    }
+}
+/*div[class*=box] {
 	height: 33.33%;
 	width: 100%;
   display: flex;
@@ -78,4 +135,17 @@ div[class*=box] {
 .btn-one:hover::after {
 	opacity: 0;
 	transform: scale(0.1, 1);
-}
+}*/
+
+/*@import url(http://fonts.googleapis.com/css?family=Bangers);*/
+
+/*html {
+    height: 100%;
+    background: repeating-linear-gradient(
+      -65deg,
+      #333 0em,
+      #333 4em,
+      #666 4em,
+      #666 8em
+    );
+}*/

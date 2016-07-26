@@ -9,12 +9,85 @@
       <link rel="stylesheet" href="css/styles.css">
       <!-- <script defer type="text/javascript" src="semantic.js"></script> -->
     </head>
-    <body>
-      <div class="box-1">
+    <body class="chrome chrome-51 windows body-webkit-scrollbars body-board-view">
+      <div id="surface">
+        <div id="header">
+          <a class="header-logo js-home-via-logo" href="/" title="Go back to the beginning and wait for Vizzini!">
+            <span class="header-logo-loading"></span>
+            <span class="header-logo-default"></span>
+          </a>
+          <div class="log_in_or_register_section">
+            <div class="log_in_or_register_frame">
+              <div class="log_in_or_register_canvas">
+                <div class="log_in_or_register_list">
+                  <ul class="topright-menu">
+                    <li class id="menuitem_login_in">
+                      <a class="login_link" href="/login">Log In</a>
+                    </li>
+                    <li class id="menuitem_register">
+                      <a class="register_link" href="/register">Register</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="main">
+          <div class="main_txt_left_center_frame">
+            <div class="main_txt_left_center_canvas">
+              <div class="main_txt_left_center_txt">
+                <h1>Welcome<span class="closer">...</span>
+                <h1>
+                <p>to the Indie Comic Book Reader and Comic book creator website.</p>
+              </div>
+            </div>
+          </div>
+          <div class="main_example_link_right_center_frame">
+            <div class="main_example_link_right_center_canvas">
+              <div class="main_example_link_right_center_image_txt">
+                <section>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 60">
+                    <defs>
+                      <filter id="shadow">
+                    <feConvolveMatrix order="4,4"
+                       kernelMatrix="
+                       1 0 0 0
+                       0 1 0 0
+                       0 0 1 0
+                       0 0 0 1" in="SourceAlpha" result="bevel" />
+                    <feOffset dx="1" dy ="1" in="bevel" result="offset" />
+                    <feMerge>
+                       <feMergeNode in="offset" />
+                       <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                    </filter>
+                        <pattern id="hexapolka" patternUnits="userSpaceOnUse" width="100" height="86" patternTransform="scale(.1)">
+                          <rect width="100%" height="86" fill="#f0f" />
+                        	<circle cx="0" cy="44" r="16" id="dot" fill="red" />
+                        	<use xlink:href="#dot" transform="translate(48,0)" />
+                        	<use xlink:href="#dot" transform="translate(25,-44)" />
+                        	<use xlink:href="#dot" transform="translate(75,-44)" />
+                        	<use xlink:href="#dot" transform="translate(100,0)" />
+                        	<use xlink:href="#dot" transform="translate(75,42)" />
+                        	<use xlink:href="#dot" transform="translate(25,42)" />
+                        </pattern>
+                    </defs>
+                    <text x="30" y="50">Comic</text>
+                  </svg>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ui loader for example comic">
+        </div>
+      </div>
+      <!-- <div class="box-1">
         <div class="btn btn-one">
           <span>Start Here</span>
         </div>
-      </div>
+      </div> -->
 
     </body>
 </html>
