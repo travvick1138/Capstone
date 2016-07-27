@@ -7,4 +7,5 @@ local_settings.py
 */migrations
 #.gitignore
 node_modules
-testfiles
+*/Comicextractions
+*/Comicfiles
