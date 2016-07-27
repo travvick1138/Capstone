@@ -1,18 +1,24 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.core.validators import MinLengthValidator, MaxLengthValidator
+from django.core.exceptions import ValidationError
+from django.utils import timezone
+
+import datetime
 
 # Create your models here.
 class Comicbook(models.Model):
     #when creating a file I will need to set users as Publisher
     #A file that is already a .cbr, .cbz, or .cbt file
     #Meta Data
+    comicfile = models.FileField(upload_to='documents/%Y/%m/%d')
     title = models.CharField(max_length=255, validators=[MaxLengthValidator(255)], blank=False)
-    Publisher = models.CharField(max_length=255, validators=[MaxLengthValidator(255)], blank=True)
-    Volume = models.CharField(max_length=255, validators=[MaxLengthValidator(255)], blank=True)
-    Publish_date = models.DateTimeField(auto_now=True)
-    Upload_date = models.DateTimeField(auto_now_add=True)
+    publisher = models.CharField(max_length=255, validators=[MaxLengthValidator(255)], blank=True)
+    volume = models.CharField(max_length=255, validators=[MaxLengthValidator(255)], blank=True)
+    publish_date = models.DateTimeField(auto_now=True)
+    upload_date = models.DateTimeField(auto_now_add=True)
     #private_content = This needs to refelect that this is purchased content and cannot be shared or if it is creator owb should be sharable
-    owner_id = models.ForeignKey(Reader)
-    #foreign key = Reader
+    owner_id = models.ForeignKey(User)
     #foreign key = Creator
     #set rating
         def __str__(self):
@@ -36,11 +42,11 @@ class Comicbook(models.Model):
 #     # potential connection with outside db like dropbox, google drive, or onedrive
 #     pass
 
-class Creator(models.Model):
+# class Creator(models.Model):
     #An extended user class with permissions to create and share comicbooks they have created
     #Type = Are you a Writer/Artist/Inker/letter/colorist?
     #Self Publisher name = (ex. travisRVick+comicArtist)
-    pass
 
-class Reader(models.Model):
-    pass
+
+# class Reader(models.Model):
+#     user = models.OneToOneField(User, on_delete-models.CASCADE)

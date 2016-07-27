@@ -35,117 +35,126 @@ p {
   padding-left: 1em;
   text-shadow: 0em 0em #ffffff;
 }
-.main_example_link_right_center_image_txt {
-  @font-face {
-		font-family: 'BadaboomBB';
-		src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/badaboombb.woff2') format('woff2'),
-		url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/badaboombb.woff') format('woff');
-		font-style: normal;
-		font-weight: 400;
-		}
-    * { box-sizing: border-box; }
-    body { margin: 0; }
-    section {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-content: center;
-    }
-    section:first-of-type {
-      background: hsl(30,100%,50%);
-    }
-    section:last-of-type {
-      background: hsl(60,100%,60%);
-    }
-    svg {
-      width: 50%;
-    }
-    text {
-    			font-size: 60px;
-    			font-family: BadaboomBB, script;
-    }
-    section:last-of-type svg text {
-      filter: url(#shadow);
-      fill: url(#hexapolka);
-    }
-}
-/*div[class*=box] {
-	height: 33.33%;
-	width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+.comic {
+  display:flex;
+  flex-wrap:wrap;
+  font-family:'Comic Sans', cursive;
+  padding:1vmin;
 }
 
-.box-1 { background-color: #FF6766; }
-.box-2 { background-color: #3C3C3C; }
-.box-3 { background-color: #66A182; }
+.panel {
+  background-color:#fff;
+  border:solid 2px #000;
+  box-shadow:0 6px 6px -6px #000;
+  display:inline-block;
+  flex:1 1;
+  height:200px;
+  margin:1vmin;
+  overflow:hidden;
+  position:relative;
+}
 
-.btn {
-	line-height: 50px;
-	height: 50px;
-	text-align: center;
-	width: 250px;
-	cursor: pointer;
+.text {
+  background-color:#fff;
+  border:solid 2px #000;
+  margin:0;
+  padding:3px 10px;
 }
-.btn-one {
-	color: #FFF;
-	transition: all 0.3s;
-	position: relative;
-}
-.btn-one span {
-	transition: all 0.3s;
-}
-.btn-one::before {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 1;
-	opacity: 0;
-	transition: all 0.3s;
-	border-top-width: 1px;
-	border-bottom-width: 1px;
-	border-top-style: solid;
-	border-bottom-style: solid;
-	border-top-color: rgba(255,255,255,0.5);
-	border-bottom-color: rgba(255,255,255,0.5);
-	transform: scale(0.1, 1);
-}
-.btn-one:hover span {
-	letter-spacing: 2px;
-}
-.btn-one:hover::before {
-	opacity: 1;
-	transform: scale(1, 1);
-}
-.btn-one::after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 1;
-	transition: all 0.3s;
-	background-color: rgba(255,255,255,0.1);
-}
-.btn-one:hover::after {
-	opacity: 0;
-	transform: scale(0.1, 1);
-}*/
 
-/*@import url(http://fonts.googleapis.com/css?family=Bangers);*/
+.top-left {
+  left:-6px;
+  position:absolute;
+  top:-2px;
+  transform:skew(-15deg);
+}
 
-/*html {
-    height: 100%;
-    background: repeating-linear-gradient(
-      -65deg,
-      #333 0em,
-      #333 4em,
-      #666 4em,
-      #666 8em
-    );
-}*/
+.bottom-right {
+  bottom:-2px;
+  position:absolute;
+  right:-6px;
+  transform:skew(-15deg);
+}
+
+.speech {
+  background-color:#fff;
+  border:solid 2px #000;
+  border-radius:12px;
+  display:inline-block;
+  margin:.5em;
+  padding:.5em 1em;
+  position:relative;
+}
+
+.speech:before {
+  border:solid 12px transparent;
+  border-left:solid 12px #000;
+  border-top:solid 12px #000;
+  bottom:-24px;
+  content:"";
+  height:0;
+  left:24px;
+  position:absolute;
+  transform:skew(-15deg);
+  width:0;
+}
+
+.speech:after {
+  border:solid 10px transparent;
+  border-left:solid 10px #fff;
+  border-top:solid 10px #fff;
+  bottom:-19px;
+  content:"";
+  height:0;
+  left:27px;
+  position:absolute;
+  transform:skew(-15deg);
+  width:0;
+}
+
+.panel:nth-child(1) {
+  height:400px;
+  flex-basis: 1080px;
+}
+.panel:nth-child(2) {
+  flex-basis: 200px;
+}
+.panel:nth-child(3) {
+  flex-basis: 1080px;
+}
+.panel:nth-child(4) {
+  flex-basis: 300px;
+}
+.panel:nth-child(5) {
+  flex-basis: 200px;
+}
+.panel:nth-child(6) {
+  flex-basis: 200px;
+}
+.panel:nth-child(7) {
+  flex-basis: 400px;
+}
+.panel:nth-child(8) {
+  flex-basis: 200px;
+}
+.panel:nth-child(9) {
+  flex-basis: 200px;
+}
+
+/* background colours */
+
+.panel:nth-child(4n+1) {
+  background-image:radial-gradient(circle, yellow, orange);
+}
+
+.panel:nth-child(4n+2) {
+  background-image:radial-gradient(circle, lightblue, deepskyblue);
+}
+
+.panel:nth-child(4n+3) {
+  background-image:radial-gradient(circle, palegreen, yellowgreen);
+}
+
+.panel:nth-child(4n+4) {
+  background-image:radial-gradient(circle, lightcoral, tomato);
+}
