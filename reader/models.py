@@ -24,23 +24,19 @@ class Comicbook(models.Model):
         def __str__(self):
             return self.title
 
-# class image(models.Model):
-    #A file that is that is .png or .jpeg for use to create a .cbz
-    #name = models.CharField(max_length=255, validators=[MaxLengthValidator(255)], blank=False)
+class image(models.Model):
+    # A file that is that is .png or .jpeg for use to create a .cbz
+    imagefile = models.FileField(upload_to='documents/%Y/%m/%d')
+    name = models.CharField(max_length=255, validators=[MaxLengthValidator(255)], blank=False)
     # --Front cover
     # -- pg1, pg2, pg3, etc
     # --Back Cover
-    #foreign key = user
-    #foreign key = Creator
-        # def __str__(self):
-        #     return self.name
+    owner_id = models.ForeignKey(User)
+    # foreign key = user
+    # foreign key = Creator
+        def __str__(self):
+            return self.name
 
-# class library(models.Model):
-#     #Rating = list?
-#     #design a rating system for the comics people create see cbldf.org to see what is available.
-#     #A returned list of Comicbooks and/or images separated into 2 list by types perhaps we would do AJAX calls and build them on the frontend
-#     # potential connection with outside db like dropbox, google drive, or onedrive
-#     pass
 
 # class Creator(models.Model):
     #An extended user class with permissions to create and share comicbooks they have created
