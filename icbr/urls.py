@@ -18,12 +18,16 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 
+admin.autodiscover()
+# add this line
+import permission; permission.autodiscover()
+
 urlpatterns = [
     patterns('reader.views',
     url(r'^list/$', 'list', name='list'),
     ('',
-    (r'^', include('myapp.urls')),
-    ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    url(r'^admin/', admin.site.urls),
+    (r'^', include('icbr.urls')),
+    ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
+    url(r'^admin/', include(admin.site.urls)),
     )
 ]

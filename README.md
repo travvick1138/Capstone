@@ -31,6 +31,7 @@ you should see (myenv) show up in front of your prompt (ex: `(myenv) Jasmine@Hom
 ### install django
 
     pip3 install django
+    pip3 install django-permission
 
 ### make sure you're in the same directory as manage.py and do
 
