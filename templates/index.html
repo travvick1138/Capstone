@@ -1,6 +1,6 @@
 <!doctype html>
 <html>
-    <head>
+    <!-- <head>
       <meta charset="utf-8">
       <title>Indie Comic Book Reader and Digital Comic Book Creator</title>
       <link rel="icon" href="image/File_000.jpg" type="image/x-icon">
@@ -8,9 +8,9 @@
       <link rel="stylesheet" href="css/semantic.css">
       <link rel="stylesheet" href="css/styles.css">
       <!-- <script defer type="text/javascript" src="semantic.js"></script> -->
-    </head>
-    <body class="chrome chrome-51 windows body-webkit-scrollbars body-board-view">
-      <div id="header">
+    <!-- </head>
+    <body class="chrome chrome-51 windows body-webkit-scrollbars body-board-view"> -->
+      <!-- <div id="header">
         <a class="header-logo js-home-via-logo" href="/" title="Go back to the beginning and wait for Vizzini!">
           <span class="header-logo-loading"></span>
           <span class="header-logo-default"></span>
@@ -31,31 +31,13 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
+{% extends 'blog/base.html' %}
+
+
+{% block content %}
       <div id="surface">
-        <div class="comic">
-          <div class="panel">
-            <p class="text top-left">Welcome...</p>
-            <h1>to the Indie Comic Book Reader site<span class="closer">...</span><h1>
-            <p class="text bottom-right">...you have arrived</p>
-          </div>
-          <div class="panel">
-            <p class="text top-left">Try resizing...</p>
-            <p class="text bottom-right">...it's responsive</p>
-          </div>
-          <div class="panel">
-            <p class="speech">A speech bubble</p>
-          </div>
-          <!-- <div class="panel"></div>
-          <div class="panel"></div>
-          <div class="panel"></div>
-          <div class="panel"></div> -->
-          <div class="panel"></div>
-          <div class="panel">
-            <p class="text bottom-right">THE END</p>
-          </div>
-        </div>
-        <!-- <div id="main">
+        <div id="main">
           <div class="main_txt_left_center_frame">
             <div class="main_txt_left_center_canvas">
               <div class="main_txt_left_center_txt">
@@ -103,13 +85,15 @@
           </div>
         </div>
         <div class="ui loader for example comic">
-        </div> -->
+        </div>
       </div>
+{% endblock %}
+
       <!-- <div class="box-1">
         <div class="btn btn-one">
           <span>Start Here</span>
         </div>
       </div> -->
 
-    </body>
-</html>
+    <!-- </body>
+</html> -->

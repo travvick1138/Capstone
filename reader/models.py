@@ -38,11 +38,21 @@ class image(models.Model):
             return self.name
 
 
-# class Creator(models.Model):
+class Creator(models.Model):
     #An extended user class with permissions to create and share comicbooks they have created
-    #Type = Are you a Writer/Artist/Inker/letter/colorist?
-    #Self Publisher name = (ex. travisRVick+comicArtist)
+    ATTRIBUTES = (
+        (0, "Enthusiast"),
+        (1, "Writer"),
+        (2, "Artist"),
+        (3, "Inker"),
+        (4, "Colorist"),
+        (5, "Letterer"),
+        )
+
+    user = models.OneToOneField(User)
+    attribute = MultipleChoiceField(default=0, choices=ATTRIBUTES)#Are you a Writer/Artist/Inker/letter/colorist?
+    self_publisher_name = models.CharField(max_length=255, validators=[MaxLengthValidator(255)], user.first_name, user.last_name, "+Comic", attribute)#ex. travisRVick+comicArtist
 
 
-# class Reader(models.Model):
-#     user = models.OneToOneField(User, on_delete-models.CASCADE)
+class Reader(models.Model):
+    user = models.OneToOneField(User)
