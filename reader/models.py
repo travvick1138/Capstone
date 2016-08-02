@@ -7,7 +7,7 @@ from django.utils import timezone
 import datetime
 
 # Create your models here.
-class image(models.Model):
+class Image(models.Model):
     # A file that is that is .png or .jpeg for use to create a .cbz
     imagefile = models.FileField(upload_to='images/%Y/%m/%d')
     name = models.CharField(max_length=255, validators=[MaxLengthValidator(255)], blank=False)

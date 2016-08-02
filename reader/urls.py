@@ -1,7 +1,7 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
+from reader import views
 
-
-urlpatterns = patterns('.views',
-    url(r'^$', 'list', name='list'),
-    url(r'^list/$', 'list', name='list'),
-)
+urlpatterns = [
+    url(r'^$', views.list),
+    url(r'^list/$', views.list, name='reader-list'),
+]
