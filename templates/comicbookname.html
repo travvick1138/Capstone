@@ -1,0 +1,10 @@
+<form action="{% url "reader-upload" %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>{{ form.non_field_errors }}</p>
+        <p>{{ form.title.label_tag }} </p>
+        <p>
+                {{ form.title.errors }}
+                {{ form.title }}
+        </p>
+        <p><input type="submit" value="Create" /></p>
+</form>
