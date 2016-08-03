@@ -6,4 +6,5 @@ urlpatterns = [
     url(r'^list/$', views.list, name='reader-list'),
     url(r'^new/$', views.newcomic, name='reader-new'),
     url(r'^upload/$', views.upload, name='reader-upload'),
+    url(r'^cbr/$', views.upload, name='reader-cbr')
 ]

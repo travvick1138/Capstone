@@ -1,0 +1,105 @@
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+$gray: #f0f0f0;
+$dark: #292929;
+
+#slider {
+    /*
+      Container width and heights are arbitrary - I just chose what looks best.
+      For reference, on my site, container is at about 45% width on desktop, 100% on mobile
+  */
+    width: 50%;
+    height: 350px;
+    margin: 0 auto;
+    @include flexbox();
+    flex-flow: column nowrap;
+    &.full {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      #images {
+        img {
+          height: 100%;
+          width: auto;
+          vertical-align: center;
+          @media (max-width: 840px) {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+    }
+    #images {
+      height: 90%;
+      text-align: center;
+      background: $dark;
+      @include flexbox();
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      img {
+        height: 100%;
+        @media (max-width: 840px) {
+          height: auto;
+          width: auto;
+          max-height: 100%;
+          max-width: 100%;
+        }
+      }
+    }
+    #controls {
+      height: 10%;
+      background: $gray;
+      @include flexbox();
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      div {
+        height: 100%;
+        @include flexbox();
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        button {
+          height: 100%;
+        }
+        #last {
+
+        }
+        #next {
+          border-right: 2px solid lighten($gray, 15%);
+        }
+      }
+      button {
+        padding: 10px;
+        background: transparent;
+        border: none;
+        outline: none;
+        color: $dark;
+        border-left: 2px solid lighten($gray, 15%);
+        width: 50px;
+        &:first-of-type {
+          border-left: none;
+        }
+        &:active, &:hover, &:focus {
+          outline: none;
+        }
+        &:hover {
+          color: lighten($dark, 15%);
+          background: darken($gray, 15%);
+        }
+      }
+      #toggle-fullscreen {
+        border-left: 2px solid lighten($gray, 15%);
+        .material-icons {
+          vertical-align: bottom;
+        }
+      }
+    }
+  }

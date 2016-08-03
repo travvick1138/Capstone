@@ -29,8 +29,8 @@ def list(request):
 
     # Render list page with the documents and the form
     return render_to_response(
-        'lists.html',
-        {'images': images, 'form': form},
+        'cbrview.html',
+        {'images': images}#, 'form': form},
         # context_instance=RequestContext(request)
     )
 
@@ -47,7 +47,7 @@ def newcomic(request):
             newdoc.save()
 
             # Redirect to the document list after POST
-            return HttpResponseRedirect(reverse('.views.upload'))
+            return HttpResponseRedirect('/')#reverse('.views.upload'))
     else:
         form = ComicbookNameForm() # A empty, unbound form
 

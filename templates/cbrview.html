@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <meta charset="utf-8">
+                <title>Indie Comicbook Reader</title>
+
+                <meta name="description" content="">
+
+                <!-- Mobile-friendly viewport -->
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+                 <!-- Style sheet link -->
+                <link href="templates/css/cbr.css" rel="stylesheet" media="all">
+                <script type="text/javascript" src="templates/js/cbr.js"></script>
+        </head>
+
+        <body>
+          <div id='slider'>
+            <div id='images'>
+              <!-- List of uploaded documents -->
+              {% if images %}
+                      <ul>
+                      {% for image in images %}
+                              <li><a href="{{ image.imagefile.url }}">{{ image.imagefile.name }}
+                              <img src="{{ image.imagefile.url }}" alt="{{ image.imagefile.name }}">
+                              </a></li>
+                      {% endfor %}
+                      </ul>
+              {% else %}
+                      <p>No images.</p>
+              {% endif %}
+
+            </div>
+            <div id='controls'>
+              <div>
+                <button id='previous'>&lt;</button>
+              <button id='next'>&gt;</button>
+              </div>
+              <button id='toggle-fullscreen'>
+                <i class='material-icons'>fullscreen</i>
+              </button>
+            </div>
+          </div>
+        </body>
+
+</html>
