@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import ModelForm
 from django.utils.text import slugify
 from django.contrib.auth.models import User
 from django.core.validators import MinLengthValidator, MaxLengthValidator
@@ -31,10 +32,21 @@ class Image(models.Model):
     # A file that is that is .png or .jpeg for use to create a .cbz
     name = models.CharField(max_length=255, validators=[MaxLengthValidator(255)], blank=False)
     imagefile = models.FileField(upload_to=comicbook_image_path)
-    comicbook = models.ForeignKey(Comicbook)
+    comicbook = models.ManyToManyField(Comicbook)
 
     def __str__(self):
         return self.name
+
+class ComicbookNameForm(ModelForm):
+    class Meta:
+        model = Comicbook
+        fields = ['title']
+
+
+class ImageForm(ModelForm):
+    class Meta:
+        model = Image
+        fields = ['name', 'imagefile', 'comicbook']
 
 
 # class UserExtended(models.Model):

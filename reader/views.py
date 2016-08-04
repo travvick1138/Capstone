@@ -29,9 +29,9 @@ def list(request):
 
     # Render list page with the documents and the form
     return render_to_response(
-        'cbrview.html',
-        {'images': images}#, 'form': form},
-        # context_instance=RequestContext(request)
+        'lists.html',
+        {'images': images, 'form': form},
+        context_instance=RequestContext(request)
     )
 
 def index(request):
@@ -55,7 +55,7 @@ def newcomic(request):
     return render_to_response(
         'comicbookname.html',
         {'form': form},
-        #RequestContext(request)
+        context_instance=RequestContext(request)
     )
 
 def upload(request):
