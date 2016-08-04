@@ -10,8 +10,9 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
                  <!-- Style sheet link -->
-                <link href="templates/css/cbr.css" rel="stylesheet" media="all">
-                <script type="text/javascript" src="templates/js/cbr.js"></script>
+                 {% load staticfiles %}
+                     <link rel="stylesheet" href="{% static "css/cbr.css" %}">
+                     <script src="{% static "js/cbr.js" %}"></script>
         </head>
 
         <body>
@@ -41,6 +42,7 @@
               </button>
             </div>
           </div>
+          <!-- <script type="text/javascript" src="js/cbr.js"></script> -->
         </body>
 
 </html>

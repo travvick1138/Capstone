@@ -1,9 +1,10 @@
 from django import forms
+from .models import Image, Comicbook
 
 
 class ImageForm(forms.Form):
-    comicbook = forms.ModelMultipleChoiceField(queryset=Comicbook.objects.all())
-    name = models.CharField(label='Name your page', max_length=255, validators=[MaxLengthValidator(255)], blank=False,)
+    comicbook = forms.ModelMultipleChoiceField(label='Select your Comicbook', queryset=Comicbook.objects.all(),)
+    name = forms.CharField(label='Name your page', max_length=255,)
     imagefile = forms.FileField(label='Select a file',)
 
 

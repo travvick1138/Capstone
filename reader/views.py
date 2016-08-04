@@ -60,3 +60,8 @@ def newcomic(request):
 
 def upload(request):
     return render_to_response('uploadimage.html')
+
+
+def cbrview(request):
+    images = Comicbook.objects.all()
+    return render(request, 'cbrview.html', {'images': images})
