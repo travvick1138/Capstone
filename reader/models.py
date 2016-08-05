@@ -11,31 +11,34 @@ import datetime
 
 # Create your models here.
 def comicbook_image_path(instance, filename):
-    return '{user}/{title}/{file}'.format(user=instance.comicbook.user, title=slugify(instance.comicbook.title), file=instance.imagefile)
+    return '{user}/{title}/{file}'.format(user=instance.user, title=slugify(instance.comicbooktitle), file=instance.imagefile)
 
 
 # def save_group(sender, instance, created, **kwargs):
 #     print(instance)
 #     UserExtended.objects.create(user=instance)
+class Image(models.Model):
+    # A file that is that is .png or .jpeg for use to create a .cbz
+    name = models.CharField(max_length=255, validators=[MaxLengthValidator(255)], blank=False)
+    imagefile = models.FileField(upload_to=comicbook_image_path)
+    comicbooktitle = models.CharField(max_length=255)
+    user = models.ForeignKey(User)
+
+    def __str__(self):
+        return self.name
 
 
 class Comicbook(models.Model):
     title = models.CharField(max_length=60, validators=[MaxLengthValidator(60)], blank=False)
     upload_date = models.DateTimeField(auto_now_add=True)
+    pages = models.ManyToManyField(Image, blank=True)
     user = models.ForeignKey(User)
 
     def __str__(self):
         return self.title
 
 
-class Image(models.Model):
-    # A file that is that is .png or .jpeg for use to create a .cbz
-    name = models.CharField(max_length=255, validators=[MaxLengthValidator(255)], blank=False)
-    imagefile = models.FileField(upload_to=comicbook_image_path)
-    comicbook = models.ManyToManyField(Comicbook)
 
-    def __str__(self):
-        return self.name
 
 class ComicbookNameForm(ModelForm):
     class Meta:
@@ -46,7 +49,7 @@ class ComicbookNameForm(ModelForm):
 class ImageForm(ModelForm):
     class Meta:
         model = Image
-        fields = ['name', 'imagefile', 'comicbook']
+        fields = ['name', 'imagefile']
 
 
 # class UserExtended(models.Model):

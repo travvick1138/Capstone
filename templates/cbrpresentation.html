@@ -1,0 +1,16 @@
+
+{{cb}}<br>
+
+{% for x in cb.pages.all %}<br>
+<img src="{{ x.imagefile.url }}"> <br>
+{% endfor %}
+
+<form action="{% url "reader-presentation" cb.id %}" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <input type="text" name="comicbook" value="{{cb.title}}">
+  Name
+  <input type="text" name="name">
+  File
+  <input type="file" name="imagefile">
+  <p><input type="submit" value="Upload" /></p>
+</form>
