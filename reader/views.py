@@ -34,8 +34,8 @@ from reader.forms import ImageForm, ComicbookNameForm
 #         context_instance=RequestContext(request)
 #     )
 #
-def base(request):
-    return render_to_response('base.html')
+# def base(request):
+#     return render_to_response('base.html')
 
 
 def newcomic(request):
@@ -91,3 +91,7 @@ def presentation(request,comic):
 def cbrview(request):
     images = Image.objects.all()
     return render(request, 'cbrview.html', {'images': images})
+
+
+def instructions(request):
+    return render_to_response('instructions.html')
