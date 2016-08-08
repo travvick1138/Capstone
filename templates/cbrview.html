@@ -1,6 +1,7 @@
 {% load staticfiles %}
-<form action="{% url "reader-cbr" %}" method="post" enctype="multipart/form-data">
 
+<form action="{% url "reader-cbr" %}" method="post" enctype="multipart/form-data">
+{% csrf_token %}
 
           <div id='slider'>
             <div id='images'>
