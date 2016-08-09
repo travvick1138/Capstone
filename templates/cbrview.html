@@ -1,24 +1,22 @@
-{% load staticfiles %}
+{% extends "base.html" %}
 
+{% block content %}
+
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static "css/cbr.css" %}">
 <form action="{% url "reader-cbr" %}" method="post" enctype="multipart/form-data">
 {% csrf_token %}
 
           <div id='slider'>
             <div id='images'>
-              <!-- List of uploaded documents -->
-              <link rel="stylesheet" href="{% static "css/cbr.css" %}">
+
               {% if images %}
-                      <ul>
-                      {% for images in images %}
-                              <li><a href="{{ images.imagefile.url }}">{{ images.imagefile.name }}
-                              <img src="{{ images.imagefile.url }}" alt="{{ images.imagefile.name }}">
-                              </a></li>
+                      {% for image in images %}
+                              <img src="{{ image.imagefile.url }}" alt="{{ image.name }}" id="{{ i }}">
                       {% endfor %}
-                      </ul>
               {% else %}
                       <p>No images.</p>
               {% endif %}
-
             </div>
             <div id='controls'>
               <div>
@@ -34,3 +32,4 @@
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
           <script src="{% static "js/cbr.js" %}"></script>
 </form>
+{% endblock %}

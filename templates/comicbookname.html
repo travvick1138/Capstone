@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+
 <form action="{% url "reader-new" %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <p>{{ form.non_field_errors }}</p>
@@ -8,3 +12,5 @@
         </p>
         <p><input type="submit" value="Create" /></p>
 </form>
+
+{% endblock %}

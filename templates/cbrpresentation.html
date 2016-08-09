@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+
 <form action="{% url "reader-presentation" cb.id %}" method="post" enctype="multipart/form-data">
   {% csrf_token %}
   <input type="text" name="comicbook" value="{{cb.title}}">
@@ -13,3 +17,5 @@
 {% for x in cb.pages.all %}<br>
 <img src="{{ x.imagefile.url }}"> <br>
 {% endfor %}
+
+{% endblock %}

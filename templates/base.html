@@ -2,36 +2,38 @@
 {% load staticfiles %}
 <html>
         <head>
-                <meta charset="utf-8">
-                <title>Indie Comicbook Reader</title>
+          <meta charset="utf-8">
+          <title>Indie Comicbook Reader</title>
 
-                <meta name="description" content="">
+          <meta name="description" content="">
 
-                <!-- Mobile-friendly viewport -->
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-                 <!-- Style sheet link -->
-
-                <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+          <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
         </head>
 
         <body>
-          <div class="page-header">
-              <h1><a href="/">Indie Comic Book Reader</a></h1>
-          </div>
-          <div class="content container">
-            {% block content %}
-            {% endblock %}
-          </div>
-          <div class="page-footer">
-            <div class="span">
-              <ul class="unstyled">
-                <li>
-                  <img width="25" height="25" style="vertical-align:middle" src="{% static "image/File_000.jpg" %}">
-                </li>
-                <li>&copy; Copyright 2016 ICBR</li>
-              </ul>
+          <div class="wrapper">
+            <div class="page-header">
+                <h1><a href="/">Indie Comic Book Reader</a></h1>
+                <div id="login">
+                  <a href="accounts/login">Login</a>
+                </div>
+            </div>
+            <div class="content-container">
+              {% block content %}
+              {% endblock %}
+            </div>
+            <div class="page-footer">
+              <div class="span">
+                <ul class="unstyled">
+                  <li>
+                    <img width="25" height="25" style="vertical-align:middle" src="{% static "image/File_000.jpg" %}">
+                  </li>
+                  <li>&copy; Copyright 2016 ICBR</li>
+                </ul>
+              </div>
             </div>
           </div>
       </body>

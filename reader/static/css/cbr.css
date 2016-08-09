@@ -1,105 +1,125 @@
-@mixin flexbox() {
+#slider {
+  /*
+    Container width and heights are arbitrary - I just chose what looks best.
+    For reference, on my site, container is at about 45% width on desktop, 100% on mobile
+*/
+  width: 50%;
+  height: 350px;
+  margin: 0 auto;
   display: -webkit-box;
-  display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
+  -webkit-flex-flow: column nowrap;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
 }
-
-$gray: #f0f0f0;
-$dark: #292929;
-
-#slider {
-    /*
-      Container width and heights are arbitrary - I just chose what looks best.
-      For reference, on my site, container is at about 45% width on desktop, 100% on mobile
-  */
-    width: 50%;
-    height: 350px;
-    margin: 0 auto;
-    @include flexbox();
-    flex-flow: column nowrap;
-    &.full {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      #images {
-        img {
-          height: 100%;
-          width: auto;
-          vertical-align: center;
-          @media (max-width: 840px) {
-            width: 100%;
-            height: auto;
-          }
-        }
-      }
-    }
-    #images {
-      height: 90%;
-      text-align: center;
-      background: $dark;
-      @include flexbox();
-      justify-content: center;
-      align-items: center;
-      align-content: center;
-      img {
-        height: 100%;
-        @media (max-width: 1650px) {
-          height: auto;
-          width: auto;
-          max-height: 100%;
-          max-width: 100%;
-        }
-      }
-    }
-    #controls {
-      height: 10%;
-      background: $gray;
-      @include flexbox();
-      flex-flow: row nowrap;
-      justify-content: space-between;
-      div {
-        height: 100%;
-        @include flexbox();
-        flex-flow: row nowrap;
-        justify-content: flex-start;
-        button {
-          height: 100%;
-        }
-        #last {
-
-        }
-        #next {
-          border-right: 2px solid lighten($gray, 15%);
-        }
-      }
-      button {
-        padding: 10px;
-        background: transparent;
-        border: none;
-        outline: none;
-        color: $dark;
-        border-left: 2px solid lighten($gray, 15%);
-        width: 50px;
-        &:first-of-type {
-          border-left: none;
-        }
-        &:active, &:hover, &:focus {
-          outline: none;
-        }
-        &:hover {
-          color: lighten($dark, 15%);
-          background: darken($gray, 15%);
-        }
-      }
-      #toggle-fullscreen {
-        border-left: 2px solid lighten($gray, 15%);
-        .material-icons {
-          vertical-align: bottom;
-        }
-      }
-    }
+#slider.full {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+#slider.full #images img {
+  height: 100%;
+  width: auto;
+  vertical-align: center;
+}
+@media (max-width: 840px) {
+  #slider.full #images img {
+    width: 100%;
+    height: auto;
   }
+}
+#slider #images {
+  height: 90%;
+  text-align: center;
+  background: #292929;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-align-content: center;
+      -ms-flex-line-pack: center;
+          align-content: center;
+}
+#slider #images img {
+  height: 100%;
+}
+@media (max-width: 840px) {
+  #slider #images img {
+    height: auto;
+    width: auto;
+    max-height: 100%;
+    max-width: 100%;
+  }
+}
+#slider #controls {
+  height: 10%;
+  background: #f0f0f0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row nowrap;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+#slider #controls div {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row nowrap;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+#slider #controls div button {
+  height: 100%;
+}
+#slider #controls div #next {
+  border-right: 2px solid white;
+}
+#slider #controls button {
+  padding: 10px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #292929;
+  border-left: 2px solid white;
+  width: 50px;
+}
+#slider #controls button:first-of-type {
+  border-left: none;
+}
+#slider #controls button:active, #slider #controls button:hover, #slider #controls button:focus {
+  outline: none;
+}
+#slider #controls button:hover {
+  color: #4f4f4f;
+  background: #cacaca;
+}
+#slider #controls #toggle-fullscreen {
+  border-left: 2px solid white;
+}
+#slider #controls #toggle-fullscreen .material-icons {
+  vertical-align: bottom;
+}

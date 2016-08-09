@@ -6,16 +6,20 @@ $(document).ready(function() {
   var $full = $("#toggle-fullscreen"); //full screen toggle button
   var $car = $("#slider"); //the whole slider
   var $count = 1; //the current image
-  var $total = 3; //the amount of images
+  var $total = $("#images img").length; //the amount of images
 
   // hey, look, I know this isn't the best way to count the images
   //but for some reason, $("#images img").length isn't returning a value
   //trouble shooting that later on.
 
   $("#images img").hide(); //hide all images
+  $("#images img").each(function(i, img){
+    $(img).attr("id", i+1);
+  });
   $("#" + $count).show(); //except the index image
 
-  $last.click(function() {
+  $last.click(function(evt) {
+    evt.preventDefault()
     //when the 'last' button is clicked
     $("#" + $count).fadeOut(300, function() {
       //fade out the currently shown image
@@ -37,8 +41,10 @@ $(document).ready(function() {
     });
   })
 
-  $next.click(function() {
+  $next.click(function(evt) {
+    evt.preventDefault()
     //when the 'next' button is clicked
+    console.log($count, $total)
     $("#" + $count).fadeOut(300, function() {
       //fade out the currently shown image
 
@@ -59,7 +65,8 @@ $(document).ready(function() {
     });
   })
 
-  $full.click(function() {
+  $full.click(function(evt) {
+    evt.preventDefault()
     //when the fullscreen toggle is clicked
 
     //if the slider is already full screen

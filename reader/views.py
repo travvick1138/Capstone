@@ -55,25 +55,25 @@ def newcomic(request):
     # Render list page with the documents and the form
     return render(request, 'comicbookname.html', {'form': form})
 
-def upload(request):
-    # Handle file upload
-    if request.method == 'POST':
-        form = ImageForm(request.POST, request.FILES)
-        if form.is_valid():
-            # newdoc = Image()
-            form.save(commit=False)
-            form.imagefile = request.FILES['imagefile']
-            # form.save(commit=False)
-            form.comicbook = Comicbook.objects.get(id=request.POST['comicbook'])
-            form.name = request.POST['name']
-            form.save()
-
-            # Redirect to the document list after POST
-            return HttpResponseRedirect('/')
-    else:
-        form = ImageForm() # A empty, unbound form
-
-    return render(request, 'uploadimage.html', {'form': form})
+# def upload(request):
+#     # Handle file upload
+#     if request.method == 'POST':
+#         form = ImageForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             # newdoc = Image()
+#             form.save(commit=False)
+#             form.imagefile = request.FILES['imagefile']
+#             # form.save(commit=False)
+#             form.comicbook = Comicbook.objects.get(id=request.POST['comicbook'])
+#             form.name = request.POST['name']
+#             form.save()
+#
+#             # Redirect to the document list after POST
+#             return HttpResponseRedirect('/')
+#     else:
+#         form = ImageForm() # A empty, unbound form
+#
+#     return render(request, 'uploadimage.html', {'form': form})
 
 
 def presentation(request,comic):
