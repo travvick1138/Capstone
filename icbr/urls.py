@@ -26,5 +26,6 @@ urlpatterns = [
     url(r'^$', views.instructions),
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/login/$', auth_views.login, name='login'),
+    url(r'^accounts/register/$', views.register, name='register'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

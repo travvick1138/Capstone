@@ -1,16 +1,31 @@
+from django import forms
+from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, render_to_response
 from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
+from django.contrib.auth.decorators import login_required
 
 from reader.models import Image, Comicbook
 from reader.forms import ImageForm, ComicbookNameForm
 
 # Create your views here.
-# def index(request):
-#     return  HttpResponse("Hello, world. you are in the reader index")
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            new_user = form.save()
+            return HttpResponseRedirect("/accounts/login/")
+    else:
+        form = UserCreationForm()
+    return render(request, "registration/register.html", {
+        'form': form,
+    })
 
 
+@login_required
+def profile(request):
+    user = request.user
 # def list(request):
 #     # Handle file upload
 #     if request.method == 'POST':
@@ -43,41 +58,21 @@ def newcomic(request):
     if request.method == 'POST':
         form = ComicbookNameForm(request.POST)
         if form.is_valid():
-            newdoc = Comicbook(title = request.POST.get('title'), user=request.user)
+            newdoc = Comicbook(title = request.POST.get('title'), user=request.user, slug=slugify(request.POST.get('title')))
             newdoc.save()
             print(newdoc)
 
             # Redirect to the document list after POST
-            return HttpResponseRedirect(reverse('reader-presentation', kwargs={'comic':newdoc.id}))
+            return HttpResponseRedirect(reverse('reader-presentation', kwargs={'comic':newdoc.slug}))
     else:
         form = ComicbookNameForm() # A empty, unbound form
 
     # Render list page with the documents and the form
     return render(request, 'comicbookname.html', {'form': form})
 
-# def upload(request):
-#     # Handle file upload
-#     if request.method == 'POST':
-#         form = ImageForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             # newdoc = Image()
-#             form.save(commit=False)
-#             form.imagefile = request.FILES['imagefile']
-#             # form.save(commit=False)
-#             form.comicbook = Comicbook.objects.get(id=request.POST['comicbook'])
-#             form.name = request.POST['name']
-#             form.save()
-#
-#             # Redirect to the document list after POST
-#             return HttpResponseRedirect('/')
-#     else:
-#         form = ImageForm() # A empty, unbound form
-#
-#     return render(request, 'uploadimage.html', {'form': form})
 
-
-def presentation(request,comic):
-    c = Comicbook.objects.get(id=comic)
+def presentation(request,slug):
+    c = Comicbook.objects.get(slug=slug)
     if request.method == 'POST':
         b = Image(comicbooktitle=request.POST['comicbook'], imagefile = request.FILES['imagefile'], name = request.POST['name'], user=request.user)
 
@@ -88,10 +83,10 @@ def presentation(request,comic):
     return render(request, 'cbrpresentation.html', {"cb": c})
 
 
-def cbrview(request):
-    images = Image.objects.all()
-    return render(request, 'cbrview.html', {'images': images})
+def cbrview(request,slug):
+    comicbook = Comicbook.objects.get(slug=slug)
+    return render(request, 'cbrview.html', {'comicbook': comicbook})
 
 
 def instructions(request):
-    return render_to_response('instructions.html')
+    return render(request, 'instructions.html')

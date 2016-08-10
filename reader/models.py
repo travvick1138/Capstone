@@ -30,6 +30,7 @@ class Image(models.Model):
 
 class Comicbook(models.Model):
     title = models.CharField(max_length=60, validators=[MaxLengthValidator(60)], blank=False)
+    slug = models.SlugField()
     upload_date = models.DateTimeField(auto_now_add=True)
     pages = models.ManyToManyField(Image, blank=True)
     user = models.ForeignKey(User)

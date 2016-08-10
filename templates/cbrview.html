@@ -4,14 +4,11 @@
 
 {% load staticfiles %}
 <link rel="stylesheet" href="{% static "css/cbr.css" %}">
-<form action="{% url "reader-cbr" %}" method="post" enctype="multipart/form-data">
-{% csrf_token %}
-
           <div id='slider'>
             <div id='images'>
 
-              {% if images %}
-                      {% for image in images %}
+              {% if comicbook %}
+                      {% for image in comicbook.pages.all %}
                               <img src="{{ image.imagefile.url }}" alt="{{ image.name }}" id="{{ i }}">
                       {% endfor %}
               {% else %}
@@ -31,5 +28,4 @@
           </div>
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
           <script src="{% static "js/cbr.js" %}"></script>
-</form>
 {% endblock %}

@@ -16,10 +16,15 @@
         <body>
           <div class="wrapper">
             <div class="page-header">
-                <h1><a href="/">Indie Comic Book Reader</a></h1>
-                <div id="login">
-                  <a href="accounts/login">Login</a>
-                </div>
+              <div id="login">
+                {% if user.is_authenticated %}
+                Welcome {{user.username}}
+                {% else %}
+                <a href="accounts/login">Login</a> / 
+                <a href="accounts/register/">Register</a>
+                {% endif %}
+              </div>
+              <h1><a href="/">Indie Comic Book Reader</a></h1>
             </div>
             <div class="content-container">
               {% block content %}
