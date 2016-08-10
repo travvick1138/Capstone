@@ -1,31 +1,41 @@
-{% extends "base.html" %}
-
-{% block content %}
-
+<!DOCTYPE html>
 {% load staticfiles %}
-<link rel="stylesheet" href="{% static "css/cbr.css" %}">
-          <div id='slider'>
-            <div id='images'>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Indie Comicbook Reader</title>
 
-              {% if comicbook %}
-                      {% for image in comicbook.pages.all %}
-                              <img src="{{ image.imagefile.url }}" alt="{{ image.name }}" id="{{ i }}">
-                      {% endfor %}
-              {% else %}
-                      <p>No images.</p>
-              {% endif %}
-            </div>
-            <div id='controls'>
-              <div>
-                <button id='previous'>&lt;</button>
-              <button id='next'>&gt;</button>
-              </div>
-              <button id='toggle-fullscreen'>
-                <i class='material-icons'>fullscreen</i>
-              </button>
+    <meta name="description" content="">
 
-            </div>
-          </div>
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-          <script src="{% static "js/cbr.js" %}"></script>
-{% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static "css/cbr.css" %}">
+
+  </head>
+
+  <body>
+    <div id='slider'>
+      <div id='images'>
+        {% if comicbook %}
+                {% for image in comicbook.pages.all %}
+                        <img src="{{ image.imagefile.url }}" alt="{{ image.name }}" id="{{ i }}">
+                {% endfor %}
+        {% else %}
+                <p>No images.</p>
+        {% endif %}
+      </div>
+      <div id='controls'>
+        <div>
+          <button id='previous'>&lt;</button>
+        <button id='next'>&gt;</button>
+        </div>
+        <button id='toggle-fullscreen'>
+          <i class='material-icons'>fullscreen</i>
+        </button>
+
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="{% static "js/cbr.js" %}"></script>
+  </body>
+</html>

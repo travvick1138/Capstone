@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+
+{% load staticfiles %}
+
+{% block content %}
+<div class="Library">
+  {% if comicbooklist %}
+          {% for title in comicbooklist.title.all %}
+          <a href="/reader/cbr/{{slug}}">{{title}}</a>
+
+          {% endfor %}
+  {% else %}
+          <p>No Comicbooks.</p>
+  {% endif %}
+
+</div>
+
+{% endblock %}

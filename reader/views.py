@@ -1,4 +1,5 @@
 from django import forms
+from django.utils.text import slugify
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, render_to_response
 from django.template import RequestContext
@@ -26,6 +27,10 @@ def register(request):
 @login_required
 def profile(request):
     user = request.user
+    comicbooklist = Comicbook.objects.filter(user=request.user)
+
+    return render(request, "profile.html", {'comicbooklist': comicbooklist})
+
 # def list(request):
 #     # Handle file upload
 #     if request.method == 'POST':
