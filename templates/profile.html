@@ -4,10 +4,16 @@
 {% load staticfiles %}
 
 {% block content %}
+<div class="Links">
+  Create a New Comicbook<br>
+  <a href="/reader/inst/">How To..</a>  <a href="/reader/new/">New</a>
+</div>
+  <!-- <a href="/reader/" -->
 <div class="Library">
   {% if comicbooklist %}
-          {% for title in comicbooklist.title.all %}
-          <a href="/reader/cbr/{{slug}}">{{title}}</a>
+          {% for comicbook in comicbooklist %}
+          {{comicbook.title}}<br>
+          <a href="/reader/cbr/{{comicbook.slug}}">Read</a>  <a href="/reader/edit/{{comicbook.slug}}">Edit</a><br>
 
           {% endfor %}
   {% else %}

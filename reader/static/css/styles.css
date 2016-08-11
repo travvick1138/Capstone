@@ -50,6 +50,7 @@ body {
       background-size: cover;
       font-family: Bangers, sans-serif;*/
       font-size: 3em;
+      margin-left: 10px;
       /*color: #000000;
       letter-spacing: 0.065em;
       text-shadow: 0.035em 0.035em #ffffff;*/
@@ -69,27 +70,39 @@ body {
       background: deepskyblue;
       background-size: cover;
       font-family: Bangers, sans-serif;
+      font-size: 1.5em;
       letter-spacing: 0.065em;
       text-shadow: 0.050em 0.050em #ffffff;
-      -webkit-margin-before: 0em;
-      -webkit-margin-after: 1em;
-      -webkit-margin-start: 1em;
-      -webkit-margin-end: 1em;
+      margin: 10px;
+}
 
-
-      /*-webkit-flex-flow: column;
-
-      flex-flow: column;*/
-      /*justify-content: flex-end;*/
+#logout {
+     float: right;
+     background: deepskyblue;
+     background-size: cover;
+     font-family: Bangers, sans-serif;
+     font-size: 1em;
+     letter-spacing: 0.065em;
+     text-shadow: 0.050em 0.050em #ffffff;
+     margin: 10px;
 }
 
 .content-container {
+      min-height: 800px;
       flex-direction: row;
       flex: 1 100%;
 }
 
 .content-container h1 .closer {
       letter-spacing:0.065em;
+}
+
+.mini-viewer {
+      float: right;
+      margin: 10px;
+      margin-right: 100px;
+
+
 }
 /*p {
       font-family:'Comic Sans', cursive;

@@ -10,27 +10,29 @@
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
           <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+          <link rel="stylesheet" href="{% static "css/cbr.css" %}">
 
         </head>
 
         <body>
           <div class="wrapper">
-            <div class="page-header">
+            <header class="page-header">
               <div id="login">
                 {% if user.is_authenticated %}
-                Welcome {{user.username}}
+                Welcome {{user.username}}<br>
+                <a id="logout" href="/accounts/logout/">log Out</a>
                 {% else %}
-                <a href="accounts/login">Login</a> / 
-                <a href="accounts/register/">Register</a>
+                <a href="/accounts/login">Login</a> /
+                <a href="/accounts/register/">Register</a>
                 {% endif %}
               </div>
               <h1><a href="/">Indie Comic Book Reader</a></h1>
-            </div>
-            <div class="content-container">
+            </header>
+            <article class="content-container">
               {% block content %}
               {% endblock %}
-            </div>
-            <div class="page-footer">
+            </article>
+            <footer class="page-footer">
               <div class="span">
                 <ul class="unstyled">
                   <li>
@@ -39,7 +41,7 @@
                   <li>&copy; Copyright 2016 ICBR</li>
                 </ul>
               </div>
-            </div>
+            </footer>
           </div>
       </body>
 </html>

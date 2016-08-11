@@ -20,13 +20,16 @@ from django.views.generic import RedirectView
 from django.contrib import admin
 from reader import urls, views
 from django.contrib.auth import views as auth_views
+from django.core.urlresolvers import reverse_lazy
 
 urlpatterns = [
     url(r'^reader/', include('reader.urls')),
-    url(r'^$', views.instructions),
+    url(r'^$', views.about),
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/login/$', auth_views.login, name='login'),
+    url(r'^accounts/logout/$', auth_views.logout, {'next_page': reverse_lazy('login')}, name='logout'),
     url(r'^accounts/register/$', views.register, name='register'),
     url(r'^profile/', views.profile, name='profile'),
+    url(r'^about/', views.about, name='about'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,5 +1,6 @@
 from django import forms
 from django.utils.text import slugify
+from django.contrib.auth import logout
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, render_to_response
 from django.template import RequestContext
@@ -30,6 +31,8 @@ def profile(request):
     comicbooklist = Comicbook.objects.filter(user=request.user)
 
     return render(request, "profile.html", {'comicbooklist': comicbooklist})
+
+
 
 # def list(request):
 #     # Handle file upload
@@ -68,7 +71,7 @@ def newcomic(request):
             print(newdoc)
 
             # Redirect to the document list after POST
-            return HttpResponseRedirect(reverse('reader-presentation', kwargs={'comic':newdoc.slug}))
+            return HttpResponseRedirect(reverse('reader-presentation', kwargs={'slug':newdoc.slug}))
     else:
         form = ComicbookNameForm() # A empty, unbound form
 
@@ -95,3 +98,7 @@ def cbrview(request,slug):
 
 def instructions(request):
     return render(request, 'instructions.html')
+
+
+def about(request):
+    return render(request, 'about.html')
